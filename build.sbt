@@ -5,13 +5,13 @@ lazy val root = project
     inThisBuild(List(
       organization := "com.axiom",
       version      := "0.0.1-SNAPSHOT",
-      scalaVersion := "3.3.3"
+      scalaVersion := "3.5.2"
     )),
     name := "patientfilterparserjs",
     libraryDependencies ++= Seq(
-      "com.lihaoyi" %%% "fastparse" % "3.1.0"      ,
+      "com.lihaoyi" %%% "fastparse" % "3.1.1",
       "org.scala-js"  %%% "scalajs-dom"    % "2.2.0",
-      "org.aurora"   %%% "dataimportcsv3s" % "0.0.1-SNAPSHOT",
+      "com.axiom"   %%% "dataimportcsv3s" % "0.0.1-SNAPSHOT",
       "org.scalatest" %%% "scalatest"      % "3.2.18"    % "test"
     ),
     scalaJSUseMainModuleInitializer := true

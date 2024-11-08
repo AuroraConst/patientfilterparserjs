@@ -14,7 +14,7 @@ object queryparser:
     import fastparse._
     import SingleLineWhitespace._  //for skipping whiteespaces and tabs
     import parserdsl.search
-    val r @  Parsed.Success(value,index) = parse(s,search(_)) : @unchecked
+    val r @  Parsed.Success(value,index) = parse(s,search(using _)) : @unchecked
     value
 
 
@@ -57,10 +57,10 @@ object queryparser:
       st.fw match {
         case None => true
         case Some(FLOORWING(floor,None)) => 
-          val r @  Parsed.Success(value:FLOORWING,index) = parse(patientLocation.floorwing,floorwing(_)) : @unchecked
+          val r @  Parsed.Success(value:FLOORWING,index) = parse(patientLocation.floorwing,floorwing(using _)) : @unchecked
           FLOORWING(value.floor, None)==st.fw.get
         case Some(FLOORWING(floor,Some(wing))) => 
-          val r @  Parsed.Success(value:FLOORWING,index) = parse(patientLocation.floorwing,floorwing(_)) : @unchecked
+          val r @  Parsed.Success(value:FLOORWING,index) = parse(patientLocation.floorwing,floorwing(using _)) : @unchecked
           FLOORWING(value.floor, value.wing)==st.fw.get
       }
     def includeMrp(patientLocation:PatientLocation):Boolean =  st.mrp match {
